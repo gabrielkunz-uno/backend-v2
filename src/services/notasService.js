@@ -19,11 +19,13 @@ const getAll = async () => {
                     'item', ni.item,
                     'nome', it.nome,
                     'qtd', ni.quantidade,
+                    'medida', m.abreviacao,
                     'unit', ni.valor_unitario,
                     'total', ni.valor_total
                 )) as itens
-            from nota_itens ni
-            inner join itens it on (it.id = ni.item)
+            from nota_itens as ni
+            inner join itens as it on (it.id = ni.item)
+            inner join medidas as m on (it.medida = m.id)
             group by ni.nota
         ) as i on (i.nota = n.id)
     `;
