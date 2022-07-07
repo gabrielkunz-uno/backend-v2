@@ -1,13 +1,13 @@
 const service = require('../services/notasService');
 
-// const getAll = async (req, res) => {
-//     try {
-//         const response = await service.getAllMedidas();
-//         res.status(200).send(response);
-//     } catch (err) {
-//         res.status(500).send(err);
-//     }
-// }
+const getAll = async (req, res) => {
+    try {
+        const response = await service.getAllNotas();
+        res.status(200).send(response);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
 
 // const getById = async (req, res) => {
 //     try {
@@ -39,7 +39,7 @@ const persistir = async (req, res) => {
 //     }
 // }
 
-//module.exports.getAllMedidas = getAll;
+module.exports.getAllNotas = getAll;
 //module.exports.getMedidaById = getById;
 module.exports.persistirNota = persistir;
 //module.exports.excluirMedida = excluir;
